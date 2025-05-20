@@ -81,3 +81,6 @@
 (setq browse-url-generic-program "/mnt/c/Program Files/Google/Chrome/Application/chrome.exe")
 (setq browse-url-chrome-program "/mnt/c/Program Files/Google/Chrome/Application/chrome.exe")
 (setq browse-url-browser-function 'browse-url-chrome)
+
+(setq auth-sources '("~/.authinfo"))
+
