@@ -84,3 +84,14 @@
 
 (setq auth-sources '("~/.authinfo"))
 
+(setq deft-directory "~/org"
+      deft-extensions '("org")
+      deft-recursive t)
+
+(setq org-journal-date-prefix "#+TITLE: "
+      org-journal-time-prefix "* "
+      org-journal-date-format "%a, %Y-%m-%d"
+      org-journal-file-format "%Y-%m-%d.org")
+
+(setq org-roam-directory "~/roam"
+      org-roam-db-location (expand-file-name org-roam-db-location "~/.config/emacs/.local/cache/org-roam.db"))

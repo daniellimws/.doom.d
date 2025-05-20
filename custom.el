@@ -7,7 +7,7 @@
  '(blink-cursor-mode nil)
  '(column-number-mode t)
  '(menu-bar-mode nil)
- '(package-selected-packages '(sqlite3))
+ '(package-selected-packages '(org-roam sqlite3))
  '(size-indication-mode t)
  '(tool-bar-mode nil))
 (custom-set-faces

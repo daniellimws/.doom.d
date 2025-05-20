@@ -49,3 +49,4 @@
 ;; (unpin! t)
 
 (package! sqlite3)
+(package! forge)
