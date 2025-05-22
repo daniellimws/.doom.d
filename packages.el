@@ -50,3 +50,6 @@
 
 (package! sqlite3)
 (package! forge)
+
+(package! org-transclusion)
+(package! exec-path-from-shell)

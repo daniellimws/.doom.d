@@ -94,4 +94,49 @@
       org-journal-file-format "%Y-%m-%d.org")
 
 (setq org-roam-directory "~/roam"
-      org-roam-db-location (expand-file-name org-roam-db-location "~/.config/emacs/.local/cache/org-roam.db"))
+      org-roam-db-location (expand-file-name "~/.config/emacs/.local/cache/org-roam.db"))
+
+(use-package! org-transclusion
+  :after org
+  :init
+  (map!
+   :map global-map "<f12>" #'org-transclusion-add
+   :leader
+   :prefix "n"
+   :desc "Org Transclusion Mode" "t" #'org-transclusion-mode))
+
+(add-to-list 'load-path "/usr/local/share/emacs/site-lisp/mu4e")
+(setq mu4e-mu-binary "/usr/local/bin/mu")
+
+(require 'epg)
+(setq epg-pinentry-mode 'loopback)
+
+(setq mu4e-sent-messages-behavior 'delete)
+(setq message-send-mail-function 'smtpmail-send-it)
+
+(require 'mu4e)
+(setq mu4e-contexts
+      `(,(make-mu4e-context
+          :name "Professional"
+          :match-func
+          (lambda (msg)
+            (when msg
+              (string-prefix-p "/weesoonglim" (mu4e-message-field msg :maildir))))
+          :vars '((user-mail-address . "weesoong.lim@gmail.com")
+                  (user-full-name    . "Daniel Lim Wee Soong")
+                  (smtpmail-smtp-server  . "smtp.gmail.com")
+                  (smtpmail-smtp-service . 465)
+                  (smtpmail-stream-type  . ssl)
+                  (mu4e-drafts-folder  . "/weesoonglim/[Gmail]/Drafts")
+                  (mu4e-sent-folder  . "/weesoonglim/[Gmail]/Sent Mail")
+                  (mu4e-refile-folder  . "/weesoonglim/[Gmail]/All Mail")
+                  (mu4e-trash-folder  . "/weesoonglim/[Gmail]/Trash")))))
+
+;; auto-load agda-mode for .agda and .lagda.md
+(setq auto-mode-alist
+      (append
+       '(("\\.agda\\'" . agda2-mode)
+         ("\\.lagda.md\\'" . agda2-mode))
+       auto-mode-alist))
+
+(exec-path-from-shell-initialize)

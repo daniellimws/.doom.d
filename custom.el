@@ -6,8 +6,10 @@
  ;; If there is more than one, they won't work right.
  '(blink-cursor-mode nil)
  '(column-number-mode t)
+ '(elfeed-feeds '("https://www.jonmsterling.com/jms-007W/atom.xml"))
  '(menu-bar-mode nil)
- '(package-selected-packages '(org-roam sqlite3))
+ '(package-selected-packages '(exec-path-from-shell org-roam sqlite3))
+ '(safe-local-variable-values '((eval turn-off-auto-fill)))
  '(size-indication-mode t)
  '(tool-bar-mode nil))
 (custom-set-faces
