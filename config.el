@@ -32,7 +32,7 @@
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-(setq doom-theme 'doom-city-lights)
+(setq doom-theme 'modus-operandi)
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
@@ -140,3 +140,13 @@
        auto-mode-alist))
 
 (exec-path-from-shell-initialize)
+
+(after! agda2-mode
+  (map! :map agda2-mode-map
+        :localleader
+        "m" #'markdown-mode))
+
+(after! markdown-mode
+  (map! :map markdown-mode-map
+        :localleader
+        "a"   #'agda2-mode))
